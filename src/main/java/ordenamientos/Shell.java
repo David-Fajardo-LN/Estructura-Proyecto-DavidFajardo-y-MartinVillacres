@@ -22,6 +22,7 @@ public class Shell {
                 iteraciones++;
                 int aux = array[i];
                 j = i;
+                
                 if (ascendente == true) {
                     while (j >= gap) {
                         comparaciones++;

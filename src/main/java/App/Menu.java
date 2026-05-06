@@ -33,6 +33,7 @@ public class Menu {
                             System.out.print("Opcion: ");
                             try{
                                 op2=sc.nextInt();
+                                
                                 switch(op2){
                                     case 1:
                                         System.out.println("¿Ascendente?(true/false):");

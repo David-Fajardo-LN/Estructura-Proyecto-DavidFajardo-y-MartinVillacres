@@ -45,6 +45,7 @@ public class Insertion {
         System.out.println("Comparaciones: "+ conCom);
         System.out.println("Cambios: "+conC);
         System.out.println("Iteraciones: "+conI);
+        
     }
     
     public static void imprimirArray(int[] array){
