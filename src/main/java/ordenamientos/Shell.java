@@ -4,58 +4,71 @@
  */
 package ordenamientos;
 
-/**
- *
- * @author User
- */
 public class Shell {
-    public static int[] ordenar(int[] array, boolean ascendente) {
+
+    public void shellSort(int[] array, boolean ascendente) {
 
         int j;
         int gap = array.length / 2;
-        int comparaciones = 0;
-        int cambios = 0;
-        int iteraciones = 0;
-        
+
         while (gap > 0) {
-            for (int i = gap; i < array.length; i++){
-                iteraciones++;
+
+            for (int i = gap; i < array.length; i++) {
+
                 int aux = array[i];
                 j = i;
-                
-                if (ascendente == true) {
+                boolean cambio = false;
+
+                int a = j - gap; // posición comparada
+                int b = j;       // posición actual
+
+                if (ascendente) {
                     while (j >= gap) {
-                        comparaciones++;
+
                         if (aux < array[j - gap]) {
                             array[j] = array[j - gap];
                             j -= gap;
-                            cambios++; 
+                            cambio = true;
                         } else {
                             break;
                         }
                     }
                 } else {
                     while (j >= gap) {
-                        comparaciones++;
+
                         if (aux > array[j - gap]) {
                             array[j] = array[j - gap];
                             j -= gap;
-                            cambios++;
+                            cambio = true;
                         } else {
                             break;
                         }
                     }
                 }
+
                 array[j] = aux;
+
+                System.out.println(
+    "    i=" + i +
+    "    array=[" + arrayToString(array) + "]" +
+    "    gap=   " + gap +
+    "    a=" + (a >= 0 ? a : "-") +
+    "    b=" + b +
+    "    array[a]=" + (a >= 0 ? array[a] : "-") +
+    "    array[b]=" + array[b] +
+    "    cambio=" + (cambio ? "si" : "no")
+);
             }
+
             gap /= 2;
         }
-        return new int[]{comparaciones, cambios, iteraciones};
     }
-    public static void imprimir(int[] arreglo) {
-        for (int num : arreglo) {
-            System.out.print(num + " ");
+
+    public static String arrayToString(int[] array) {
+        String resultado = "";
+        for (int valor : array) {
+            resultado += valor + " , ";
         }
-        System.out.println();
+        return resultado;
     }
 }
